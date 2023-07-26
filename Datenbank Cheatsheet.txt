@@ -1,0 +1,57 @@
+
+
+	Datenbanken Design: 
+		
+	Constraints
+	
+	
+	
+	auf Unique überprüfen
+	
+	- Cascade: "wird übernommen" (meistens bei ONUpdate)
+	- Restrict: "darf nocht geändert werden " (meistens bei ONDELETE)
+	- Set Null: "wird auf Null gesetzt" (ACHTUNG: Feld muss NULL ABLE sein)
+	
+	
+	Feldergrößen: 
+	
+	- IDs [int(10) unsigned]
+	- FIDs [int(10) unsigned]
+	
+	- Nachname [VARCHAR(32)]
+	- Nachname [VARCHAR(32)]
+	- Telno [VARCHAR(64)]
+	- Emailadresse [VARCHAR (64)]
+	- GebDatum [date]
+	- SVNr [smallint(4) unsigned zerofill]
+	- PLZ [smallint(4)]
+	- Ort [varchar(64)]
+	- Adresse [varchar(64)]
+	- Profilbild [varchar(128)]
+	
+	
+	- Stundenzahl [tinyint(3)unsigned]
+	- Titel [VARCHAR(128)]
+	- Anzahl [double(5,2)]
+	
+	- Staat VarChar(32)
+	- Kurzzeichen VarChar(2)
+	- Vorwahl smalint(4)
+
+Preis decimal(7,2)
+	
+	
+	Dokumentation: (Beispielsätze)
+	
+	Beispiel:
+	
+		- Für alle verwendeten Constraints in dieser Datenbank wird festgelegt, dass bei einem UPDATE ein
+		  CASCADE zum Einsatz gebracht wird, um Fehler bei Änderungen zu vermeiden.
+		  
+		  
+		bauteil.FIDArt -> bauteil_art.IDBauteil_art ist eine 1:n Beziehung, da mehrere Bauteile die gleiche Art haben können:
+		
+		 - ON DELETE: RESTRICT. Wenn eine Baustein Art schon einen Stein zugewiesen wurde
+		sollte diese nicht gelöscht werden, da der Stein ohne Art nicht existieren kann.
+		
+		 - ON UPDATE: siehe oben.
