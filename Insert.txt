@@ -1,0 +1,33 @@
+<?php
+// Verbindung zur Datenbank herstellen
+$servername = "localhost"; // Hier den Servernamen eintragen
+$username = "dein_benutzername"; // Hier den Datenbank-Benutzernamen eintragen
+$password = "dein_passwort"; // Hier das Datenbank-Passwort eintragen
+$dbname = "deine_datenbank"; // Hier den Datenbanknamen eintragen
+
+// Verbindung herstellen
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verbindung überprüfen
+if ($conn->connect_error) {
+    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+}
+
+// Daten aus dem $_POST-Array abrufen und sicher behandeln
+$newUsername = $_POST['username'];
+$newEmail = $_POST['email'];
+$newPassword = $_POST['password'];
+$newAge = (int) $_POST['age']; // Wir wandeln das Alter in eine Zahl um
+
+// INSERT-Befehl ausführen
+$sql = "INSERT INTO users (username, email, password, age) VALUES ('$newUsername', '$newEmail', '$newPassword', $newAge)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Datensatz erfolgreich eingefügt.";
+} else {
+    echo "Fehler beim Einfügen des Datensatzes: " . $conn->error;
+}
+
+// Verbindung schließen
+$conn->close();
+?>
