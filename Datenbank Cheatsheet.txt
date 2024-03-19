@@ -4,12 +4,10 @@
 		
 	Constraints
 	
-	
-	
 	auf Unique überprüfen
 	
 	- Cascade: "wird übernommen" (meistens bei ONUpdate)
-	- Restrict: "darf nocht geändert werden " (meistens bei ONDELETE)
+	- Restrict: "darf nicht geändert werden " (meistens bei ONDELETE)
 	- Set Null: "wird auf Null gesetzt" (ACHTUNG: Feld muss NULL ABLE sein)
 	
 	
