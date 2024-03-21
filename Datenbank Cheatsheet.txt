@@ -1,14 +1,6 @@
 
 
 	Datenbanken Design: 
-		
-	Constraints
-	
-	auf Unique überprüfen
-	
-	- Cascade: "Änderungen werden übernommen" (meistens bei ONUpdate)
-	- Restrict: "Änderung darf nicht übernommen werden werden " (meistens bei ONDELETE)
-	- Set Null: "wird auf Null gesetzt" (ACHTUNG: Feld muss NULL ABLE sein)
 	
 	
 	Feldergrößen: 
@@ -38,9 +30,80 @@
 
 	-Bool (tinyint (1) - null able !!!)
 
-Preis decimal(7,2)
+	-Preis decimal(7,2)
+
+	-----------
 	
+	Natürlich, hier sind weitere Felder, die in verschiedenen Datenbanktabellen üblich sein könnten:
 	
+	- **Kommunikationsfelder:**
+	  - Telefonnummer (PhoneNumber) [varchar(20)]
+	  - Faxnummer (FaxNumber) [varchar(20)]
+	  - Social Media Handle (SocialMedia) [varchar(50)]
+	  - Website (Website) [varchar(100)]
+	
+	- **Finanzfelder:**
+	  - Kontostand (AccountBalance) [decimal(12,2)]
+	  - Transaktionsbetrag (TransactionAmount) [decimal(12,2)]
+	  - Rechnungsbetrag (InvoiceAmount) [decimal(12,2)]
+	  - Währung (Currency) [varchar(3)]
+	
+	- **Zeitfelder:**
+	  - Startzeit (StartTime) [time]
+	  - Endzeit (EndTime) [time]
+	  - Dauer (Duration) [time]
+	
+	- **Authentifizierungsfelder:**
+	  - Benutzername (Username) [varchar(50)]
+	  - Passwort (PasswordHash) [varchar(100)]
+	  - Zugriffsrechte (Permissions) [varchar(255)]
+	  - Sitzungstoken (SessionToken) [varchar(100)]
+	
+	- **Verwaltungsfelder:**
+	  - Ersteller (Creator) [int(10)]
+	  - Bearbeiter (Editor) [int(10)]
+	  - Genehmiger (Approver) [int(10)]
+	  - Zuständigkeitsbereich (Responsibility) [varchar(50)]
+	
+	- **Identifikationsfelder:**
+	  - Kundennummer (CustomerID) [int(10)]
+	  - Mitarbeiter ID (EmployeeID) [int(10)]
+	  - Produktcode (ProductCode) [varchar(20)]
+	  - Auftragsnummer (OrderNumber) [varchar(20)]
+	
+	- **Statusfelder:**
+	  - Status (Status) [varchar(20)]
+	  - Fortschritt (Progress) [int(3)]
+	  - Priorität (Priority) [int(2)]
+	  - Zustand (State) [varchar(20)]
+
+----------------------------------
+	
+	Constraints
+	
+	auf Unique überprüfen
+	
+	- Cascade: "Änderungen werden übernommen" (meistens bei ONUpdate)
+	- Restrict: "Änderung darf nicht übernommen werden werden " (meistens bei ONDELETE)
+	- Set Null: "wird auf Null gesetzt" (ACHTUNG: Feld muss NULL ABLE sein)
+
+Beispielsätze: 
+
+Natürlich, hier sind einfache Beispiele ohne Code:
+
+1. **Cascade: "Änderungen werden übernommen" (meistens bei ON UPDATE):**
+   - Angenommen, ein Benutzer mit der ID 1 wird in der Benutzertabelle auf die ID 100 aktualisiert. Alle zugehörigen Beiträge, die den Benutzer mit der ID 1 referenzieren, werden automatisch auf den Benutzer mit der ID 100 aktualisiert.
+
+2. **Restrict: "Änderung darf nicht übernommen werden" (meistens bei ON DELETE):**
+   - Angenommen, eine Abteilung mit der ID 10 kann nicht gelöscht werden, solange noch Mitarbeiter dieser Abteilung zugeordnet sind. Das Löschen der Abteilung wird blockiert, bis die Mitarbeiter dieser Abteilung entfernt werden.
+
+3. **Set Null: "wird auf Null gesetzt" (ACHTUNG: Feld muss NULL ABLE sein):**
+   - Angenommen, ein Kunde wird aus der Kundentabelle gelöscht. Alle zugehörigen Bestellungen, die den gelöschten Kunden referenzieren, setzen das Kundenfeld auf NULL, wenn dies erlaubt ist.
+   
+Diese Beispiele verdeutlichen die verschiedenen Aktionen, die bei der Aktualisierung oder Löschung von Datensätzen mit Fremdschlüsselbeziehungen auftreten können.
+
+---------------------------------------------------------------------------
+
 	Dokumentation: (Beispielsätze)
 	
 	Beispiel:
