@@ -6,8 +6,8 @@
 	
 	auf Unique überprüfen
 	
-	- Cascade: "wird übernommen" (meistens bei ONUpdate)
-	- Restrict: "darf nicht geändert werden " (meistens bei ONDELETE)
+	- Cascade: "Änderungen werden übernommen" (meistens bei ONUpdate)
+	- Restrict: "Änderung darf nicht übernommen werden werden " (meistens bei ONDELETE)
 	- Set Null: "wird auf Null gesetzt" (ACHTUNG: Feld muss NULL ABLE sein)
 	
 	
@@ -35,6 +35,8 @@
 	- Staat VarChar(32)
 	- Kurzzeichen VarChar(2)
 	- Vorwahl smalint(4)
+
+	-Bool (tinyint (1) - null able !!!)
 
 Preis decimal(7,2)
 	
