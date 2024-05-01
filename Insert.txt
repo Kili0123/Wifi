@@ -20,7 +20,7 @@ $newPassword = $_POST['password'];
 $newAge = (int) $_POST['age']; // Wir wandeln das Alter in eine Zahl um
 
 // INSERT-Befehl ausführen
-$sql = "INSERT INTO users (username, email, password, age) VALUES ('$newUsername', '$newEmail', '$newPassword', $newAge)";
+$sql = "INSERT INTO tbl_users (username, email, password, age) VALUES ('$newUsername', '$newEmail', '$newPassword', $newAge)";
 
 if ($conn->query($sql) === TRUE) {
     echo "Datensatz erfolgreich eingefügt.";
